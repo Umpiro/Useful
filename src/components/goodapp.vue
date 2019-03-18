@@ -68,6 +68,21 @@ export default {
     Group,
     Cell
   },
+  created () {
+    let _this = this
+    this.$http.post('https://api.apiopen.top/getJoke').then(({data}) => {
+      console.log(data)
+      var new_data = data.result.map((item, index) => ({
+        src: item.header,
+        fallbackSrc: item.header,
+        title: item.name,
+        desc: item.text
+      }))
+      console.log(new_data)
+      _this.list = new_data
+    })
+  },
+
   methods: {
     login () {
       this.$router.push('/login')
