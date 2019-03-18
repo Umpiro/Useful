@@ -8,6 +8,7 @@ import Home from './components/goodapp.vue'
 import Login from './components/login.vue'
 
 Vue.use(VueRouter)
+Vue.use(AjaxPlugin)
 
 const routes = [{
   path: '/',
